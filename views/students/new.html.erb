@@ -1,0 +1,41 @@
+<div style="margin-left: 100px;margin-top: 100px;">
+<%= form_with model: [ @course, @course.students.build ] do |form| %>
+  <div>
+    <%= form.label :rno %><br>
+    <%= form.text_field :rno, :required => true %>
+    
+  </div>
+
+  <div>
+    <%= form.label :sname %><br>
+    <%= form.text_field :sname, :required => true %><br>
+   
+  </div>
+<div>
+    <%= form.label :branch %><br>
+    <%= form.text_field :branch, :required => true %><br>
+   
+  </div>
+<!-- <div>
+  <%#
+    <%= form.label :course %><br> %>
+   <%# <%= form.text_field :course_id %> %><br>
+  
+  </div> -->
+
+  <div>
+    <select>
+     <% @cr.each do |c| %>
+     <% if @course.id == c.id %>
+       <option value="<%= c.id %>" selected><%= c.cname %> </option>
+     <% else %>  
+     <option value="<%= c.id %>"><%= c.cname %> </option>
+     <% end %>
+     <% end %>
+ </select>
+  </div>
+  <div style="margin-top:10px;">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

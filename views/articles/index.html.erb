@@ -1,0 +1,24 @@
+<h1>Articles#index</h1>
+<p>Find me in app/views/articles/index.html.erb</p>
+<form acton="/articles/index" method="get">
+   <input type="radio" name="fi" value="title" />By Title
+   <input type="radio" name="fi" value="id" />By ID
+   <br><br>
+   <input type="text" name="txtsearch" placeholder="Enter title" />
+   <br><br>
+   <input type="submit" name="btnsubmit" value="Click" />
+</form>	
+<table border="1" style="width:500px;">
+
+	<tr><td>ID</td><td>Title</td><td>Body</td></tr>
+	<% @articles.each do |article| %>
+	<tr>
+	<td> <%= article.id %> </td>
+	<td> <%= article.title %> </td>
+	<td> <%= article.body %> </td>
+	<td><a href="<%= article_path(article) %>">Show</a> || <a href="<%= edit_article_path(article) %>">Edit</a> || <a href="">Delete</a> </td>
+    </tr>
+    <% end %>
+</table>
+<br><br>
+<a href="<%= new_article_path(@article) %>"><input type="button" value="Create New Article" style="background-color: blue;width:200px;height:30px; border:1px solid black;border-radius: 10px;color:white;" /></a>
