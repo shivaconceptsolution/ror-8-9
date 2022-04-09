@@ -1,0 +1,21 @@
+<div style="margin-left: 100px;margin-top: 100px;">
+  <h1>New User Login Here<h1>
+<%= form_with model: @reg do |form| %>
+  <div>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+    
+  </div>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %><br>
+   
+  </div>
+
+
+  <div style="margin-top:10px;">
+    <%= form.submit :value => "Login"  %>
+  </div>
+<% end %>
+</div>
